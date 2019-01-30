@@ -90,10 +90,10 @@ def powerlaw_psd_gaussian(exponent, size, fmin=0):
 
     # If the signal length is even, this corresponds to frequency
     # +/- 0.5, so the coefficient must be real.
-    if not (samples % 2): si[-1] = 0
+    if not (samples % 2): si[...,-1] = 0
 
     # Regardless of signal length, the DC component must be real.
-    si[0] = 0
+    si[...,0] = 0
 
     # Use inverse real fft to automatically assume Hermitian
     # spectrum rather than constructing it ourselves.
